@@ -1,0 +1,152 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+      
+
+    </head>
+
+<body >
+    <nav>
+        <a routerLink="" class="logo"><img src="../assets/Images/logo.png"></a>
+        <ul>
+          <li><a routerLink="">Home</a></li>
+          <li><a routerLink="/specialities">Specialities</a></li>
+          <li><a routerLink="/demo">Demo videos</a></li>
+          <li><a routerLink="/treatment">Treatments</a></li>
+         
+        </ul>
+        <a href="tel:+91 9360585602"><button type="button">Emergency<br>+91 9360585602</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" routerLink="/appointment">Appointment</button>
+      </nav>
+      <section class="section">
+            <h4 style="font-weight:600;padding: 60px; padding-left:530px;">Book Appointment with Doctors..</h4>
+
+            <section class="course">
+               
+                <div class="row">
+                    <ng-container *ngFor="let doc of Doctors">
+                    <div class="coursecol">
+                        <button type="button" (click)="showAppointmentForm = true">Book Appointment</button>
+                        <h6>Doctor Name&nbsp;:&nbsp;{{doc.firstName}} {{doc.lastName}}</h6>
+                        <h6>Dept Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{doc.depName}}</h6>
+                        <h6>Availablity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{doc.availableStatus}}</h6>
+                    </div>
+                    </ng-container>
+                </div>
+            
+            </section>
+
+            <div class="form">
+            <div *ngIf="showAppointmentForm" class="main-form"><br>
+                <form [formGroup]="appointmentForm" (ngSubmit)="AppointmentDetails()" > 
+                  <div class="form-group">
+                    <span>Patient name ?</span>
+                    <input type="text" name="Fname" id="Fname" class="form-control" formControlName="patientName">
+                    
+                  </div>
+            
+                  <div class="form-group">
+                    <span>Age ?</span>
+                    <input type="number" name="number" id="number" class="form-control" formControlName="age" required>
+                  </div>
+            
+                  <div class="form-group">
+                    <span>Gender ?</span>
+                    <select class="form-control" formControlName="gender" name="gender" required
+                      >
+                      <option value="" disabled selected hidden>----</option>
+                      <option value="female">Female</option>
+                      <option value="male">Male</option>
+                      <option value="trans">Transgender</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <span>Email address ?</span>
+                    <input type="email" name="email" id="email" class="form-control" formControlName="userEmail" required>
+                  </div>
+            
+                  <div class="form-group">
+                      <span>Affliction ?</span>
+                      <input type="text" name="address" id="address" class="form-control"  formControlName="diseaseDescription" required>
+                    </div>
+           
+                    <div class="form-group">
+                      <span>Appointment Date and Time ?</span>
+                      <input type="datetime-local" name="city" id="city" class="form-control"  formControlName="appointmentSchedule">
+                    </div><br>
+      
+                    <div id="confirm">
+                      
+                      <input type="submit"  value="Book Appointment">
+                    </div><br>
+           
+                    <!-- <div id="next">
+                  
+                      <input type="button" value="NEXT" routerLink= "/booking">
+                    </div> -->
+                  
+                  
+                  <!-- <div id="submit" routerLink="/booking" >
+                    <button type="submit" value="NEXT"(click)="customerForm()">NEXT</button>
+                  </div> -->
+                  
+                 </form>
+       
+              </div> 
+              </div><br><br><br><br>
+        
+      </section>
+      
+      <footer class="footer">
+        <div class="container">
+      
+          <div class="row">
+      
+            <div class="footer-col">
+              <h2>DOCPULSE</h2>
+                  <p>HEalthcare at its finest...<br>
+                  </p>
+            </div>
+            <div class="footer-col">
+              <h4>Links</h4>
+              <ul>
+                <li><a routerLink="">Home</a></li>
+                <li><a routerLink="/demo">Demo</a></li>
+                <li><a routerLink="/specialities">Specialities</a></li>
+                <li><a routerLink="/procedures">Procedures</a></li>
+                <li><a routerLink="/appointment">Appointment</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Support</h4>
+              <ul>
+                <li><a routerLink="/faq">FAQ</a></li>
+                <li><a routerLink="/support">Support center</a></li>
+                <li><a routerLink="/feedback">Feedback</a></li>
+                
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Contact us</h4>
+              <div class="social-links">
+                <a href="https://www.facebook.com/itcgrandcentral/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/ITCHotels"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/itchotels/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/itc-hotels/"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+      
+          </div>
+        </div>   
+      
+        <div class="footer-bottom">
+          <p>copyright &copy;2023 <a routerLink="/home">DocPulse</a> All Rights Reserved </p>
+       </div>
+      
+      </footer>
+          
+          
+      </body>
+      </html>

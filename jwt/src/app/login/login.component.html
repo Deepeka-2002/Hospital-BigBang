@@ -1,0 +1,72 @@
+<!-- <p>login works!</p>
+    <div class="mb-3">
+        <label class="form-control">User ID</label>
+        <input class="form-control" type="number" placeholder="Enter USer ID" [(ngModel)]="userDTO.userId">
+ 
+        <label for="login-password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="login-password" placeholder="Enter your password" [(ngModel)]="userDTO.password">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="Login()">Login</button> -->
+    <html>
+      <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        
+  
+      </head>
+  
+
+    <body>
+    <section class="loginsection">
+                  <!-- <div class="col-md-6 col-lg-5 d-none d-md-block">
+                     <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                      alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" /> 
+                  </div> -->
+                
+                    <div class="logindiv">
+      
+
+                        <div >
+                 
+                          <span class="heading">Join Us</span>
+                        </div>
+      
+                        <h4 style="font-weight: 700;">Sign into your account</h4>
+      
+                        <!-- <div class="form-outline mb-4">
+                          <input type="text" id="form2Example17" class="form-control form-control-lg" placeholder="User Name" [(ngModel)]="userDTO.id"/>
+                        </div> -->
+
+                        <div class="inputfield">
+                          <input type="text" id="form2Example17" class="form-control" placeholder="Email" [(ngModel)]="userDTO.email" name="username" #username="ngModel"/>
+                          <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+                            <div *ngIf="username.errors?.['required']">User email is required.</div>
+                            
+                          </div>
+                        </div>
+      
+                        <!-- <div class="form-outline mb-4">
+                          <input type="password" id="form2Example27" class="form-control form-control-lg" placeholder="password" [(ngModel)]="userDTO.password"/> 
+                        </div> -->
+
+                        <div class="inputfield">
+                          <input type="password" id="form2Example27" class="form-control" placeholder="Password" [(ngModel)]="userDTO.password" name="password" required #password="ngModel"/>
+                          
+                          <div *ngIf="password.invalid && (password.dirty || password.touched)" style="color: rgb(51, 89, 202); font-weight:00">
+                            <div *ngIf="password.errors?.['required']">*Password is required.</div>
+                          </div>
+                        </div>
+      
+                        <div class="btninput">
+                          <button type="button"class="log" (click)="Login()">Login</button>
+                        </div>
+      
+                        <!-- <li aria-disabled="true" class="small text-muted" href="#!">Forgot password?</li> -->
+                        <p style="font-size:18px; text-align: center;padding-bottom:20px">Don't have an account? 
+                        <a (click)="move()" style="color:rgb(51, 89, 202);cursor:pointer;font-weight: 700;">Register here </a></p>
+                        
+                    </div>
+      </section>
+
+    </body>
+    </html>

@@ -1,0 +1,354 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  nav {
+    width:100%;
+    display:flex;
+    justify-content:right;
+    padding-top:15px;
+    padding-left:10%;
+    padding-right:10%;
+    background-color: white;
+    box-shadow: rgba(154, 154, 156, 0.25) 0px 50px 100px -20px, rgba(108, 108, 108, 0.2) 0px 30px 60px -30px, rgba(95, 96, 97, 0.35) 0px -2px 6px 0px inset;
+    height: 70px;
+  }
+  
+  .logo img{
+    width:150px;
+    height:50px;
+    position: absolute;
+    left: 120px;
+    
+  }
+  
+  nav ul li {
+    list-style-type: none;
+    margin: 0;
+    padding: 15px 20px;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  nav ul li a:hover{
+    color: rgb(31, 76, 209);
+    transition:.3s;
+    
+  }
+  
+  nav button{
+    border:none;
+    background: rgb(31, 76, 209);
+    padding:10px 30px;
+    border-radius:10px;
+    color:#fff;
+    font-weight:bold;
+    font-size:12px;
+    transition:.5s;
+    height: 45px;
+  
+  }
+  nav button:hover{
+    transform:scale(1.2);
+    cursor:pointer;
+  }
+ .section{
+   background-image: linear-gradient(to bottom,rgb(29, 104, 161),rgb(47, 163, 240),rgb(0, 110, 255));
+    background-size: cover;
+    background-position: center;
+ }
+
+ .course{
+    width:80%;
+    margin:auto;
+    text-align:center;
+    /* padding-top:100px; */
+
+}
+
+.row{
+    margin-top:5%;
+    display: flex;
+    justify-content: space-between;
+}
+.coursecol{
+    flex-basis:31%;
+    background:#fff3f3;
+    border-radius: 10px;
+    margin-bottom:5%;
+    padding:20px 12px;
+    box-sizing:border-box;
+    transition: 0.5s;
+   
+}
+.coursecol h6{
+    text-align:left;
+    font-weight:600;
+    margin:10px 0;
+    padding-left:40px;
+}
+.coursecol button{
+ 
+        border:none;
+        background: rgb(31, 76, 209);
+        padding:10px 30px;
+        border-radius:10px;
+        color:#fff;
+        font-weight:bold;
+        font-size:12px;
+        transition:.5s;
+        height: 45px;
+        margin:20px;
+      
+      
+}
+.coursecol:hover{
+    box-shadow:0 0 20px 0px rgba(11, 11, 11, 1);
+}
+@media(max-width: 700px){
+    .row{
+        flex-direction:column;
+    }
+}
+
+.form{
+    width: 500px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 15px;
+    margin-left:500px;
+
+    
+}
+
+.form p{
+    font-size: 24px;
+    color:#01d394;
+    
+}
+
+.form-text{
+    text-align: center;
+    margin: 0 0 40px 0;
+}
+
+
+.form-text h1{
+    margin-top: 20px ;
+    color: #fff;
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+.form-text h4{
+    color: #fff;
+    font-size: large;
+}
+
+.main-form div{
+    margin: 10px 10px;
+    width: 300px;
+  
+    margin-left: 80px;
+}
+
+.main-form div input,
+.main-form div button {
+    width: 100%;
+    border-radius:8px;
+    background: none;
+    border: 1px solid #0113d3;;
+    font-size: 16px;
+    color: #000000;
+    outline: none;
+    padding: 3px 0 3px 10px;
+    margin-top: 10px;
+  
+}
+.main-form div select{
+    width: 100%;
+    height:35px;
+    background: none;
+    border: 1px solid #0113d3;;
+    font-size: 16px;
+    color: #000000;
+    outline: none;
+    padding: 10px 10px 10px 10px;
+    /* margin-top: 10px; */
+}
+.main-form div span{
+    width: 100%;
+    color: #000000;
+    font-size: 18px;
+}
+
+#submit{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px ;
+}
+#confirm input,
+#next input{
+    margin-left:60px;
+    text-align: center;
+    color: #fff;
+    border-radius: 6px;
+    width: 200px;
+    background-color: rgba(18, 1, 255, 0.822) !important;
+    color: white !important;
+    transition: all .3s;
+    padding:5px;
+    margin-bottom: 20px;
+}
+#confirm input:hover,
+#next input:hover{
+
+    width: 200px;
+    background-color: #0c01d3 !important;
+
+}
+#submit input:active{
+    font-size: 19px;
+    background-color: rgb(46, 20, 5) !important;
+    color: #fff !important;
+}
+
+
+@media screen and (max-width:710px) {
+    .main-form{
+        text-align: center;
+    }
+}
+
+
+.footer{
+	background-color: rgb(39, 156, 192);
+    padding: 70px 0;
+    line-height: 1.5;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+
+.footer-col h2{
+  margin-top: 30px;
+  color: black;
+  font-weight:700;
+  text-transform: uppercase;
+  margin-right:20px;
+  padding-left: -20px;
+
+}
+
+.footer-col p{
+  margin-top: 30px;
+  color: #fff;
+  margin-right: 20px;
+  white-space: nowrap;
+
+}
+.footer-col h4{
+	font-size: 18px;
+	color: black;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 600;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: black;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li{
+    list-style-type: none;
+}
+
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color:white;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: white;
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: black;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+
+	background-color: #ffffff;
+}
+
+.footer-bottom{
+    width: 100%;
+    padding: 600px;
+    padding-bottom: 40px;
+    padding-top:40px;
+    align-items: center;
+
+}
+
+.footer-bottom p{
+   float: left;
+    font-size: 18px;
+    word-spacing: 2px;
+    text-transform:initial;
+    color:#fff;
+    white-space: nowrap;
+ }
+ .footer-bottom p a{
+   color:black;
+   font-size: 20px;
+   font-weight: 600;
+   text-decoration: none;
+   
+ }
+ .footer-bottom p a:hover{
+     transform: scale(1.5);
+     font-weight: 600;
+ }
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}

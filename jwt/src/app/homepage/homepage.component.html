@@ -1,0 +1,252 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">Logo</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link active" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" routerLink="/user" routerLinkActive="active">User Page</a>
+              </li>
+              <li class="nav-item" *ngIf="flag">
+                <a class="nav-link active" routerLink="/admin" routerLinkActive="active">Admin Page</a>
+              </li>
+              <li class="nav-item" *ngIf="flag1">
+                <a class="nav-link active" routerLink="/other" routerLinkActive="active">SuperAdmin Page</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" style="cursor:pointer;color: white;">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+</body>
+</html> -->
+
+<html>
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+      
+
+    </head>
+
+<body>
+<section class="home">
+
+  <nav>
+    <a routerLink="" class="logo"><img src="../assets/Images/logo.png"></a>
+    <ul>
+      <li><a routerLink="">Home</a></li>
+      <li><a routerLink="/specialities">Specialities</a></li>
+      
+      <li><a routerLink="/treatment">Treatments</a></li>
+     
+    </ul>
+    <a href="tel:+91 9360585602"><button type="button">Emergency<br>+91 9360585602</button></a>
+    <button type="button" routerLink="/appointment">Appointment</button>
+    <!-- <button type="button" routerLink="/signup">Sign Up</button> -->
+  </nav>
+  
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../../assets/Images/bgimg.jpg" alt="Slide 1">
+      <div class="carousel-caption">
+        <h1>A Complete Medical Solution in one place..</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="overcontent">
+    <h2>Overview</h2>
+    <h5>The DocPlus group of hospitals hopes to see more people in India and around the world getting non-compromised, evidence-based healthcare. Working towards this end, Be Well has been setting up hospitals with world-class infrastructure in locations that currently have limited access to healthcare.
+
+       Doc Plus is a chain of "Small Giant" Multispeciality hospitals creating the most innovative healthcare infrastructure for small towns in India. It spreads health awareness in engaging ways that shift the community focus from "Get Well" to "Be Well"</h5>
+  </div>
+
+  <div class="testimonials">
+
+    <div class="row">
+        <div class="testimonial-col">
+            <h4>Our Vision</h4><br>
+            <p>Enable healthcare businesses to provide superior healthcare delivery and patient care with technology globally</p>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="testimonial-col">
+            <h4>Our Mission</h4><br>
+            <p>Provide a scalable, secure platform to clinics and hospitals that provide great value at reasonable cost</p>
+        </div>
+    </div>
+  </div>
+
+  <div class="course">
+    <h2 style="font-weight: 600;">Who we are..</h2>
+  
+      <div class="row">
+          <div class="coursecol">
+           
+              <img src="../../assets/Images/hpy_families.png">
+              <p>500000+<br>Happy families.</p>
+             
+          </div>
+          <div class="coursecol">
+            <img src="../../assets/Images/specialities.png">
+            <p>20<br>Specialities.</p>
+          </div>
+          
+          <div class="coursecol">
+            <img src="../../assets/Images/babies_born.png">
+            <p>3000+<br>Babies Born.</p>
+          </div>
+          <div class="coursecol">
+            <img src="../../assets/Images/health_checkup.png">
+            <p>10000+<br>Health Checkups</p>
+          </div>
+      </div>
+  
+  </div>
+
+  <div class="campus">
+    <h2  style="font-weight: 600;">Our Global Branches</h2><br>
+    <p >Spread the care and love that you have got...</p>
+    <div class="row">
+        <div class="campus-col">
+            <img src="../../assets/Images/london.jpeg">
+            <div class="layer">
+                <h3>LONDON</h3>
+            </div>
+        </div>
+        <div class="campus-col">
+            <img src="../../assets/Images/newyork.jpeg">
+            <div class="layer">
+                <h3>NEW YORK</h3>
+            </div>
+        </div>
+        <div class="campus-col">
+            <img src="../../assets/Images/washington.jpeg">
+            <div class="layer">
+                <h3>WASHINGTON</h3>
+            </div>
+        </div>
+
+    </div>
+
+  </div><br><br>
+
+  <div class="testimonials1">
+    <h2 style="font-weight: 600;">Why DocPlus ?</h2>
+   
+    <div class="row">
+        <div class="testimonial-col1">
+            <img src="../../assets/Images/healthcare.png">
+            <div>
+                <p>
+                  We have brought our entire multidisciplinary team of experts together to provide advanced treatment for you.
+                </p>
+               
+                
+            </div>
+        </div>
+        <div class="testimonial-col1">
+            <img src="../../assets/Images/coronavirus.png">
+            <div>
+                <p>
+                  We are screening, masking, and using advanced sterilization procedures to keep you safe when you enter.
+                </p>
+                
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+      <div class="testimonial-col1">
+          <img src="../../assets/Images/doctor_new.png">
+          <div>
+              <p>
+                We have highly qualified and experienced doctors team.
+              </p>
+             
+          </div>
+      </div>
+      <div class="testimonial-col1">
+          <img src="../../assets/Images/rupee.png">
+          <div>
+              <p>
+                Be Well offers you Afforadable and Accessible Price for all.
+
+              </p>
+              
+          </div>
+      </div>
+
+  </div>
+</div>
+
+
+<footer class="footer">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="footer-col">
+        <h2>DOCPULSE</h2>
+            <p>HEalthcare at its finest...<br>
+            </p>
+      </div>
+      <div class="footer-col">
+        <h4>Links</h4>
+        <ul>
+          <li><a routerLink="">Home</a></li>
+         
+          <li><a routerLink="/specialities">Specialities</a></li>
+          <li><a routerLink="/procedures">Procedures</a></li>
+          <li><a routerLink="/appointment">Appointment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a routerLink="/faq">FAQ</a></li>
+          <li><a routerLink="/support">Support center</a></li>
+          <li><a routerLink="/feedback">Feedback</a></li>
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact us</h4>
+        <div class="social-links">
+          <a href="https://www.facebook.com/itcgrandcentral/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/ITCHotels"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/itchotels/"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/itc-hotels/"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>   
+
+  <div class="footer-bottom">
+    <p>copyright &copy;2023 <a routerLink="/home">DocPulse</a> All Rights Reserved </p>
+ </div>
+
+</footer>
+    </section>
+    
+</body>
+</html>
