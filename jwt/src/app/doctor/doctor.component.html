@@ -13,17 +13,20 @@
         
          
         </ul>
-        
-        <button type="button" routerLink="/appointment">Logout</button>
+        <button type="button" routerLink="/demo">Edit Profile</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" routerLink="/login">Logout</button>
         <!-- <button type="button" routerLink="/signup">Sign Up</button> -->
-      </nav>
+      </nav><br><br>
 
       <section>
     
-        <h3 style="font-weight: 700;padding-left:600px;padding-top:50px;padding-bottom: 60px;">Appointment Details..</h3>
+       
+        <h3 style="font-weight: 700;padding-left:600px;padding-top:50px;padding-bottom: 60px;">Patient Appointment Details..</h3><br>
         <table class="table">
         <thead>
          <tr>
+             <th></th>
+             <th></th>
              <th scope="col">PatientName</th>
              <th scope="col">UserEmail</th>
              <th scope="col">Age</th>
@@ -35,6 +38,8 @@
         </thead>
         <tbody>
            <tr *ngFor="let app of Appointments">
+            <td></td>
+            <td></td>
              <td>{{app.patientName }}</td>
              <td>{{app.userEmail}}</td>
              <td>{{app.age}}</td>
@@ -47,19 +52,19 @@
             <td><button class="btn btn-danger" (click)="Decline(app.appointmentId)">Delete</button></td>
             </tr>
         </tbody>
-        </table>
+        </table><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
      
      </section>
 
 
-      <footer class="footer">
+      <!-- <footer class="footer">
         <div class="container">
       
           <div class="row">
       
             <div class="footer-col">
-              <h2>DOCPULSE</h2>
-                  <p>HEalthcare at its finest...<br>
+              <h2>HEALTHCR</h2>
+                  <p>Healthcare at its finest...<br>
                   </p>
             </div>
             <div class="footer-col">
@@ -95,10 +100,10 @@
         </div>   
       
         <div class="footer-bottom">
-          <p>copyright &copy;2023 <a routerLink="/home">DocPulse</a> All Rights Reserved </p>
+          <p>copyright &copy;2023 <a routerLink="/home">HealthCR</a> All Rights Reserved </p>
        </div>
       
-      </footer>
+      </footer> -->
 
           
       </body>

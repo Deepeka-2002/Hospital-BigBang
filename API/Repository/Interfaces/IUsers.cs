@@ -12,7 +12,11 @@ namespace RoleBasedAuthorization.Repository.Interfaces
 
     IEnumerable<User> FilterDoctors();
 
-    public int GetUserIdByEmail(string email);
+    IEnumerable<User> FilterUsers();
+    //IEnumerable<User> FilterAppointment(int id);
+    IEnumerable<User> FilterSpecialisation(string dept);
+
+    IEnumerable<User> FilterDoctorAppointment(string email);
   
     Task<List<User>?> DeleteUserById(int id);
 

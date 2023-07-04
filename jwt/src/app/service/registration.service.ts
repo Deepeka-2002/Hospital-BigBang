@@ -48,6 +48,10 @@ export class RegistrationService {
     return this.http.get(`https://localhost:7192/api/Users/FilterDoctors`);
   }
 
+  public getUse():any{
+    return this.http.get(`https://localhost:7192/api/Users/FilterUsers`);
+  }
+
   public getApp():any{
     return this.http.get(`https://localhost:7192/api/Appointment`);
   }
@@ -77,11 +81,21 @@ public postRegistrationData(register:registerModel){
 
   public getUserId(email:any):Observable<any>
   {
-   return this.http.get(`https://localhost:7192/api/Users/${email}`);
+   return this.http.get(`https://localhost:7192/api/Users/userid/${email}`);
+  }
+
+  public getFilter(depName:any):Observable<any>
+  {
+   return this.http.get(`https://localhost:7192/api/Users/Filter/${depName}`);
   }
 
   public DeleteDoctor(id:any):Observable<any>
   {
    return this.http.delete(`https://localhost:7192/api/Dummy/${id}`);
   }
+
+  public UpdateDoctor(id:number, doc:any):Observable<any>
+    {
+     return this.http.put(`https://localhost:7192/api/Users/${id}`,doc);
+    }
 }

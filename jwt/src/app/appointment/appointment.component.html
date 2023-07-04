@@ -12,7 +12,7 @@
         <ul>
           <li><a routerLink="">Home</a></li>
           <li><a routerLink="/specialities">Specialities</a></li>
-          <li><a routerLink="/demo">Demo videos</a></li>
+
           <li><a routerLink="/treatment">Treatments</a></li>
          
         </ul>
@@ -20,23 +20,53 @@
         <button type="button" routerLink="/appointment">Appointment</button>
       </nav>
       <section class="section">
-            <h4 style="font-weight:600;padding: 60px; padding-left:530px;">Book Appointment with Doctors..</h4>
+            <h4 style="font-weight:600;padding: 60px; padding-left:590px;padding-top:80px;">Book Appointment with Doctors..</h4>
 
-            <section class="course">
-               
-                <div class="row">
-                    <ng-container *ngFor="let doc of Doctors">
-                    <div class="coursecol">
-                        <button type="button" (click)="showAppointmentForm = true">Book Appointment</button>
-                        <h6>Doctor Name&nbsp;:&nbsp;{{doc.firstName}} {{doc.lastName}}</h6>
-                        <h6>Dept Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{doc.depName}}</h6>
-                        <h6>Availablity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{doc.availableStatus}}</h6>
-                    </div>
-                    </ng-container>
-                </div>
+         
+            <form [formGroup]="Filter" (ngSubmit)="filter()">
+              <div class="form-group">
+              <input style="width:350px;height:40px;margin-left:550px;margin-top: 50px;padding-left:10px;" type="text" class="form-control" placeholder="Search by Specialisation.." formControlName="depName" (ngModel)="depName">
+              <input type="submit" class="formhover" style="background-color: rgb(31, 76, 209);white-space: wrap; border-radius:5px;width:100px;height:40px;color:white;font-weight: 500; border-style: none;position: relative;top:-40px;left:900px;"  value="Search">
+                  
+              </div>
+            </form>
+
+            <section class="course" >
             
-            </section>
+              <div class="row">
+                <ng-container *ngFor="let doc of filteredSpec">
 
+                  <div class="coursecol">
+                    <img src="../../assets/Images/{{doc.gender}}.png" style="width:100px;height:100px;border-radius:5px;">
+                    <button type="button" (click)="showAppointment(doc.id)">Book Appointment</button>
+                    <h6>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{doc.firstName}} {{doc.lastName}}</h6>
+                    <h6>Dept Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{doc.depName}}</h6>
+                    <h6>Availability&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;
+                      <ng-container *ngIf="doc.availableStatus; else notAvailable"><span class="text-success" style="font-weight: 700;">Yes</span></ng-container>
+                      <ng-template #notAvailable><span class="text-danger" style="font-weight: 700;">No</span></ng-template>
+                    </h6>
+                  </div>
+                </ng-container>
+              </div>
+            </section>
+            
+
+            <!-- <section class="course" *ngIf="showdoctors">
+              <div class="row">
+                <ng-container *ngFor="let doc of Doctors">
+                  <div class="coursecol">
+                    <button type="button" (click)="showAppointmentForm = true">Book Appointment</button>
+                    <h6>Doctor Name&nbsp;:&nbsp;{{doc.firstName}} {{doc.lastName}}</h6>
+                    <h6>Dept Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{doc.depName}}</h6>
+                    <h6>Availability&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{doc.availableStatus}}</h6>
+                  </div>
+                </ng-container>
+              </div>
+            </section> -->
+
+            <div class="popup1" *ngIf="showAppointmentForm">
+              <div class="popup-content1">
+                <span class="close1" (click)="closeAppointment()">&times;</span>
             <div class="form">
             <div *ngIf="showAppointmentForm" class="main-form"><br>
                 <form [formGroup]="appointmentForm" (ngSubmit)="AppointmentDetails()" > 
@@ -82,6 +112,7 @@
                       <input type="submit"  value="Book Appointment">
                     </div><br>
            
+                   
                     <!-- <div id="next">
                   
                       <input type="button" value="NEXT" routerLink= "/booking">
@@ -93,11 +124,23 @@
                   </div> -->
                   
                  </form>
+                
+            </div>
+            </div>
        
               </div> 
               </div><br><br><br><br>
         
       </section>
+
+      <div class="popup" *ngIf="status">
+        <div class="popup-content">
+          <span class="close" (click)="closePopup()">&times;</span>
+          <h5 style="font-weight: 600;">Appointment Booked successfully!...</h5>
+          
+        </div>
+
+      </div>
       
       <footer class="footer">
         <div class="container">

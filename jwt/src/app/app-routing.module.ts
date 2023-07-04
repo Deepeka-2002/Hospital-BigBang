@@ -12,6 +12,7 @@ import { AdmindoctorComponent } from './admindoctor/admindoctor.component';
 import { DoctorComponent } from './doctor/doctor.component';
 
 const routes: Routes = [
+  {path:'',component:HomepageComponent},
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
   {path:'homepage',component:HomepageComponent},

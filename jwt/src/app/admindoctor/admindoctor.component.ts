@@ -13,10 +13,12 @@ export class AdmindoctorComponent implements OnInit{
   }
     ngOnInit(){
       this.getDoctors();
+      this.getUsers();
      
     };
 
   Doctors !: any;
+  Users !: any;
 
   public getDoctors():void{
     this.registrationService.getDoc().subscribe(ress =>{
@@ -26,6 +28,13 @@ export class AdmindoctorComponent implements OnInit{
     )
   }
 
+  public getUsers():void{
+    this.registrationService.getUse().subscribe(ress =>{
+      this.Users = ress
+      console.log(this.Users)
+    }
+    )
+  }
   public Decline(id:any) : void{
     this.Doctors=this.Doctors.filter((doc:any) => doc.id !== id);
   

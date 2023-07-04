@@ -18,7 +18,7 @@
   }
   
   .logo img{
-    width:150px;
+    width:125px;
     height:50px;
     position: absolute;
     left: 120px;
@@ -51,7 +51,7 @@
     border-radius:10px;
     color:#fff;
     font-weight:bold;
-    font-size:12px;
+    font-size:16px;
     transition:.5s;
     height: 45px;
   
@@ -62,7 +62,7 @@
   }
 
   section{
-    background-image: linear-gradient(to bottom,rgb(29, 104, 161),rgb(47, 163, 240),rgb(0, 110, 255));
+    /* background-image: linear-gradient(to bottom,rgb(119, 178, 223),rgb(199, 222, 237),rgb(136, 184, 247)); */
      background-size: cover;
      background-position: center;
   }

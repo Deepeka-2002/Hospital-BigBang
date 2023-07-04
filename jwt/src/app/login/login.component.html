@@ -60,6 +60,16 @@
                         <div class="btninput">
                           <button type="button"class="log" (click)="Login()">Login</button>
                         </div>
+
+                        <div class="popup" *ngIf="login_status">
+                          <div class="popup-content">
+                            <span class="close" (click)="closePopup()">&times;</span>
+                            <h5 style="font-weight: 600;">Login successful!...</h5>
+                            <p style="font-weight: 600;" *ngIf="loggedInUser.role ==='Doctor'">Your Registration Id is {{LoginId}}..<p>
+                           
+                          </div>
+      
+                        </div>
       
                         <!-- <li aria-disabled="true" class="small text-muted" href="#!">Forgot password?</li> -->
                         <p style="font-size:18px; text-align: center;padding-bottom:20px">Don't have an account? 

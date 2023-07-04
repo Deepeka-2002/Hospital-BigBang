@@ -28,19 +28,27 @@ namespace RoleBasedAuthorization.Controllers
 
 
     // GET: api/Customers/5
-    [HttpGet("{id}")]
-    public async Task<ActionResult<Appointment>> GetAppointmentById(int id)
-    {
-      try
-      {
-        var customer = await IApp.GetAppointmentById(id);
-        return Ok(customer);
-      }
+    //[HttpGet("{id}")]
+    //public async Task<ActionResult<Appointment>> GetAppointmentById(int id)
+    //{
+    //  try
+    //  {
+    //    var customer = await IApp.GetAppointmentById(id);
+    //    return Ok(customer);
+    //  }
 
-      catch (ArithmeticException ex)
-      {
-        return NotFound(ex.Message);
-      }
+    //  catch (ArithmeticException ex)
+    //  {
+    //    return NotFound(ex.Message);
+    //  }
+    //}
+
+    [HttpGet("FilterAppointment")]
+    public IEnumerable<Appointment> FilterAppointment(int Id)
+    {
+
+      return IApp.FilterAppointment(Id);
+
     }
 
     // PUT: api/Customers/5

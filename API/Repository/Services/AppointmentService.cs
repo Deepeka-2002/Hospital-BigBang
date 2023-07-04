@@ -21,14 +21,20 @@ namespace RoleBasedAuthorization.Repository.Services
       return apps;
     }
 
-    public async Task<Appointment?> GetAppointmentById(int id)
+    //public async Task<Appointment?> GetAppointmentById(int id)
+    //{
+    //  var apps = await _Context.appointment.FindAsync(id);
+    //  if (apps is null)
+    //  {
+    //    throw new ArithmeticException("Invalid  id");
+    //  }
+    //  return apps;
+    //}
+
+    public IEnumerable<Appointment> FilterAppointment(int id)
     {
-      var apps = await _Context.appointment.FindAsync(id);
-      if (apps is null)
-      {
-        throw new ArithmeticException("Invalid  id");
-      }
-      return apps;
+      List<Appointment> Appointments = _Context.appointment.Where(x => x.Id == id).ToList();
+      return Appointments;
     }
 
     //public async Task<int> GetUserIdByEmail(string email)

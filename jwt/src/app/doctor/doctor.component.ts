@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RegistrationService } from '../service/registration.service';
 
 @Component({
@@ -9,11 +9,17 @@ import { RegistrationService } from '../service/registration.service';
 })
 export class DoctorComponent implements OnInit{
 
-  constructor(private router :Router ,private registrationService: RegistrationService){
+  constructor(private router :Router ,private registrationService: RegistrationService, private route :ActivatedRoute){
   }
+
+   LoginId:any
+
     ngOnInit(){
       this.getAppointments();
       this.Decline;
+      this.route.queryParams.subscribe(params => {
+        this.LoginId = params['LoginId'];
+      });
      
     };
 

@@ -39,8 +39,9 @@ namespace RoleBasedAuthorization.Repository.Services
       customer.FirstName = user.FirstName;
       customer.LastName = user.LastName;
       customer.Email = user.Email;
+      customer.DepName = user.DepName;
       customer.AvailableStatus = user.AvailableStatus;
-      customer.Gender = user.Gender;
+      
 
 
       await _Context.SaveChangesAsync();
@@ -53,8 +54,24 @@ namespace RoleBasedAuthorization.Repository.Services
       return users;
     }
 
+    public IEnumerable<User> FilterUsers()
+    {
+      List<User> users = _Context.Users.Where(x => x.Role == "User").ToList();
+      return users;
+    }
 
+    //public IEnumerable<User> FilterAppointment(int id)
+    //{
+    //  List<User> users = _Context.Users.Where(x => x.Id == id).ToList();
+    //  return users;
+    //}
+    public IEnumerable<User> FilterSpecialisation(string dept)
+    {
+      List<User> users = _Context.Users.Where(x => x.DepName == dept).ToList();
+      return users;
+    }
 
+   
     //public async Task<User> CreateDoctor([FromForm] User doctor, IFormFile imageFile)
     //{
     //  if (imageFile == null || imageFile.Length == 0)
@@ -90,10 +107,11 @@ namespace RoleBasedAuthorization.Repository.Services
     //Delete
 
 
-    public int GetUserIdByEmail(string email)
+    public IEnumerable<User> FilterDoctorAppointment(string email)
     {
-      var user = _Context.Users.FirstOrDefault(x => x.Email == email);
-      return user?.Id ?? 0;
+      List<User> users = _Context.Users.Where(x => x.Email== email).ToList();
+      return users;
+
     }
     public async Task<List<User>?> DeleteUserById(int id)
       {
@@ -107,4 +125,5 @@ namespace RoleBasedAuthorization.Repository.Services
         return await _Context.Users.ToListAsync();
       }
     }
+
 }

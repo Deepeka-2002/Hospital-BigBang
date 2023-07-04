@@ -1,51 +1,4 @@
-<!-- <div>
-    <table>
-        <tr>
-            <td><label class="form-control">Full Name</label></td>
-            <td><input class="form-control" 
-                required minlength="5" 
-                type="text" 
-                [(ngModel)]="intern.name" 
-                #iname="ngModel"></td>
-            <span *ngIf="iname.touched && iname.invalid" class="alert alert-danger">
-               <span *ngIf="iname.errors['required']"> Name cannot be empty</span>
-               <span  *ngIf="iname.errors['minlength']">Name should be min 5 chars long</span> 
-            </span>
-        </tr>
-        <tr>
-            <td><label class="form-control">Phone</label></td>
-            <td><input class="form-control" type="text" [(ngModel)]="intern.phone"></td>
-        </tr>
-        <tr>
-            <td><label class="form-control">Email</label></td>
-            <td><input class="form-control" type="text" [(ngModel)]="intern.email"></td>
-        </tr>
-        <tr>
-            <td><label class="form-control">Gender</label></td>
-            <td>
-                <select class="form-control" (change)="addGender(gender.value)" #gender>
-                    <option value="female">Female</option>
-                    <option value="male">Male</option>
-                </select>
-            </td>
-        </tr>
-        <tr>
-            <td><label class="form-control">Date Of Birth</label></td>
-            <td><input class="form-control" type="date" [(ngModel)]="intern.dateOfBirth"></td>
-        </tr>
-        <tr>
-            <td><label class="form-control">Age</label></td>
-            <td><input class="form-control" type="number" [(ngModel)]="intern.age"></td>
-        </tr>
-        <tr>
-            <td><button class="btn btn-success" (click)="addIntern()">Register</button></td>
-            <td><button class="btn btn-danger">Cancel</button></td>
-        </tr>
-    </table>
-</div>
-<div>
-    {{intern| json}}
-</div> -->
+
 <html>
       <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -58,43 +11,22 @@
     <body>
 
 <section class="loginsection" >
-            <!-- <div>
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
-                alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
-            </div> -->
+           
             
               <div class="logindiv">
 
 
-                <!-- <div class="d-flex align-items-center mb-3 pb-1">
-                  <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-                  <span class="h1 fw-bold mb-0">Logo</span>
-                </div> -->
-
                 <h4 style="font-weight: 700;">Register your Account</h4>
 
                 <form #register_form="ngForm">
-                  <!-- <div class="form-outline mb-4">
-                    <input type="text" class="form-control form-control-lg" required pattern="[a-zA-Z0-9]*"
-                      placeholder="Username" id="id" name="id" #id="ngModel" [(ngModel)]="register.id" />
-                    <div *ngIf="(id?.dirty || id?.touched)" class="text-danger">
-                      <div *ngIf="!id?.valid">
-                        <div *ngIf="id.errors?.['required']">
-                          User name is required
-                        </div>
-                        <div *ngIf="id.value && id.errors && !id.errors?.['required']">
-                          Please enter a valid input [Username should not contain special charaters]
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
+              
 
 
                   <div class="inputfield">
                     <input type="email" class="form-control" placeholder="Email" name="email"
                       [(ngModel)]="register.email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
                       #email="ngModel" />
-                    <div *ngIf="email.invalid && email.touched" class="text-danger">
+                    <div *ngIf="email.invalid && email.touched" >
                       <div style="color: rgb(51, 89, 202); font-weight:600" *ngIf="email.errors?.['required']">Email is required.</div>
                       <div *ngIf="email.errors?.['pattern']">Please enter a valid email address.</div>
                     </div>
@@ -106,7 +38,7 @@
                     <input type="text" class="form-control" placeholder="First Name"
                       [(ngModel)]="register.firstName" name="firstName" required pattern="[a-zA-Z]+"
                       #firstName="ngModel" />
-                    <div *ngIf="firstName.invalid && firstName.touched" class="text-danger">
+                    <div *ngIf="firstName.invalid && firstName.touched">
                       <div style="color: rgb(51, 89, 202); font-weight:600" *ngIf="firstName.errors?.['required']">First Name is required.</div>
                       <div *ngIf="firstName.errors?.['pattern']">Please enter a valid First Name (only alphabets are
                         allowed).</div>
@@ -117,7 +49,7 @@
                     <input type="text" class="form-control" placeholder="Last Name"
                       [(ngModel)]="register.lastName" name="lastName" required pattern="[a-zA-Z]+"
                       #lastName="ngModel" />
-                    <div *ngIf="lastName.invalid && lastName.touched" class="text-danger">
+                    <div *ngIf="lastName.invalid && lastName.touched" >
                       <div style="color: rgb(51, 89, 202); font-weight:600" *ngIf="lastName.errors?.['required']">Last Name is required.</div>
                       <div *ngIf="lastName.errors?.['pattern']">Please enter a valid Last Name (only alphabets are
                         allowed).</div>
@@ -171,19 +103,7 @@
                     </div> -->
                   </div>
 
-                  <!-- <div class="form-outline mb-4">
-                    <select class="form-control form-control-lg" [(ngModel)]="register.availableStatus" name="availableStatus" required
-                      #availableStatus="ngModel">
-                      <option value="" disabled selected hidden>Select Availablity</option>
-                    
-                      <option value="Yes">true</option>
-                      <option value="No">false</option>
-
-                    </select>
-                    <div *ngIf="availableStatus.invalid && availableStatus.touched" class="text-danger">
-                      <div *ngIf="availableStatus.errors?.['required']">Availablity is required.</div>
-                    </div>
-                  </div> -->
+                 
 
 
                   <div class="inputfield" style="padding-top:10px">
@@ -208,7 +128,26 @@
                     <a style="cursor:pointer;color: rgb(51, 89, 202); font-weight:600" (click)="login_here()" >Login here </a>
                   </p>
 
-                  <span *ngIf="registration_status">Login after some time after the Admin approval...</span>
+                  <!-- <span *ngIf="registration_status">Login after some time after the Admin approval...</span> -->
+
+                  <div class="popup" *ngIf="registration_status">
+                    <div class="popup-content">
+                      <span class="close" (click)="closePopup()">&times;</span>
+                      <h5 style="font-weight: 600;">You can Login after the Admin Approval!...</h5>
+                     
+                    </div>
+
+                  </div>
+
+                  <div class="popup" *ngIf="status">
+                    <div class="popup-content">
+                      <span class="close" (click)="closePopup1()">&times;</span>
+                      <h5 style="font-weight: 600;">Registration successful!...</h5>
+                     
+                    </div>
+
+                  </div>
+
                 </form>
               </div>
             

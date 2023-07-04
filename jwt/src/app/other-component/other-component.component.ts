@@ -11,26 +11,12 @@ import { registerModel} from '../../app/register/model/register.model';
 export class OtherComponentComponent {
     
  
-    // dum !: any;
+    status = false;
+    status1 =false;
   
     constructor(private registrationService: RegistrationService) {
 
-    //   this.dum =
-    // {
-    //   id:0,
-    //   email:"",
-    //   firstName: "",
-    //   lastName: "",
-    //   gender: "",
-    //   role: "",
-    //   password: "",
-    //   hashKey: "",
-    //   passwordClear: "",
-    //   depName:"",
-    //   availableStatus:true
-      
-    // }
-      // this.registrationData = this.registrationService.getRegistrationData();
+   
     }
 
  
@@ -48,6 +34,7 @@ export class OtherComponentComponent {
       }
       )
     }
+    data1 !: any;
 
     public Approve(dum:any){
 
@@ -57,19 +44,32 @@ export class OtherComponentComponent {
       dum1.password="";
       
       this.registrationService.postRegistrationData(dum1).subscribe(data =>{
-         console.log("success");
+         console.log(data);
+         this.data1= data;
+        localStorage.setItem("LId",this.data1.id); 
+
         // Handle success response if needed
       })
       this.registrationService.DeleteDoctor(dum.id).subscribe(
         // res=>{
         //   alert("deleted")
         // }
-        (result) => { alert("Doctor Deleted");},
+        (result) => { 
+          this.status =true;
+         
+      },
         (error)  => {
           alert("Error");
           }
       )
 
+    }
+
+    closePopup(): void {
+      this.status = false; // Close the registration status pop-up
+    }
+    closePopup1(): void {
+      this.status1 = false; // Close the registration status pop-up
     }
 
     public Decline(dum:any){
@@ -78,7 +78,9 @@ export class OtherComponentComponent {
         // res=>{
         //   alert("deleted")
         // }
-        (result) => { alert("Staff Deleted");},
+        (result) => {
+          this.status1 = true;
+        },
         (error)  => {
           alert("Error");
           }
@@ -93,20 +95,5 @@ export class OtherComponentComponent {
       }
 
 }
-// export class Model
-// {
 
-//          id:number;
-//          email:string="";
-//          firstName: string="";
-//          lastName: string="";
-//          gender: string="";
-//          role: string="";
-//          password: string="";
-//          hashKey: string="";
-//          passwordClear: string="";
-//          depName: string="";
-//         availableStatus:boolean=true;
-
-// }
  

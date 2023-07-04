@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   @ViewChild('register_form') registerForm: NgForm;
   showError: boolean = false;
   registration_status = false;
+  status =false;
 
   public signup_form!:FormGroup;
 
@@ -79,11 +80,13 @@ public getDepartment():void{
         this.registrationService.AddDoctor(this.register).subscribe(result => 
           {
            
-            alert("You will be added after the Admin approval");
+            this.registration_status = true;
+            // alert("You will be added after the Admin approval");
+            
           }
           
           );
-          ;
+          
         console.log("register in component");
         this.registration_status = true;
       }
@@ -96,7 +99,9 @@ public getDepartment():void{
           .subscribe(result => 
             {
              
-              alert("User added");
+              this.status = true;
+              // alert("User added");
+              this.router.navigate(['login']);
             }
             
             );
@@ -124,6 +129,13 @@ public getDepartment():void{
       {
         this.router.navigateByUrl('login');
       }
+      closePopup(): void {
+        this.registration_status = false; // Close the registration status pop-up
+      }
+      closePopup1(): void {
+        this.status = false; // Close the registration status pop-up
+      }
+    
     }
     // else 
     // {
@@ -131,22 +143,3 @@ public getDepartment():void{
     // }
 
     
-    
-  
-
-
-
-// export class registerModel
-// {
-
-//          id:string="";
-//          email:string="";
-//          firstName: string="";
-//          lastName: string="";
-//          gender: string="";
-//          role: string="";
-//          password: string="";
-//          hashKey: string="";
-//          passwordClear: string=""
-
-// }

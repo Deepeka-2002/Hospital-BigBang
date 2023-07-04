@@ -34,18 +34,39 @@ namespace RoleBasedAuthorization.Controllers
 
     }
 
-    [HttpGet("{email}")]
-    public IActionResult GetUserIdByEmail(string email)
+    [HttpGet("FilterUsers")]
+    public IEnumerable<User> FilterUsers()
     {
-      int userId = IUse.GetUserIdByEmail(email);
 
-      if (userId != 0)
-      {
-        return Ok(userId);
-      }
+      return IUse.FilterUsers();
 
-      return NotFound("User not found.");
     }
+
+    //[HttpGet("FilterAppointment")]
+    //public IEnumerable<User> FilterAppointment(int Id)
+    //{
+
+    //  return IUse.FilterAppointment(Id);
+
+    //}
+
+    [HttpGet("Filter/{dept}")]
+    public IEnumerable<User> FilterSpecialisation(string dept)
+    {
+
+      return IUse.FilterSpecialisation(dept);
+
+    }
+
+    [HttpGet("FilterDoctorAppointment")]
+    public IEnumerable<User> FilterDoctorAppointment(string email)
+    {
+
+      return IUse.FilterDoctorAppointment(email);
+
+    }
+
+
 
     //[HttpPost]
     //public async Task<ActionResult<List<User>>> AddUser(User user)
@@ -84,6 +105,22 @@ namespace RoleBasedAuthorization.Controllers
     //    return BadRequest(ModelState);
     //  }
     //}
+
+
+    [HttpPut("{id}")]
+    public async Task<ActionResult<List<User>>> UpdateDoctor(int id, User use)
+    {
+
+      try
+      {
+        var customer = await IUse.UpdateUser(id, use);
+        return Ok(customer);
+      }
+      catch (ArithmeticException ex)
+      {
+        return NotFound(ex.Message);
+      }
+    }
 
     [HttpDelete("{id}")]
       public async Task<ActionResult<List<User>>> DeleteUserById(int id)

@@ -17,6 +17,7 @@ import { ProceduresComponent } from './procedures/procedures.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { AdmindoctorComponent } from './admindoctor/admindoctor.component';
 import { DoctorComponent } from './doctor/doctor.component';
+import { ManageComponent } from './manage/manage.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DoctorComponent } from './doctor/doctor.component';
     ProceduresComponent,
     AppointmentComponent,
     AdmindoctorComponent,
-    DoctorComponent
+    DoctorComponent,
+    ManageComponent
   ],
   imports: [
     BrowserModule,
