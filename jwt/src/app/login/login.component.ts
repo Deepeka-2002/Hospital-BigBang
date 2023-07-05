@@ -40,19 +40,15 @@ export class LoginComponent {
       localStorage.setItem("email",this.loggedInUser.email);
       localStorage.setItem("role",this.loggedInUser.role);
       localStorage.setItem("login", new Date().toDateString());
+ 
 
       this.LoginId = localStorage.getItem("LId");
       
       this.login_status = true;
-
-   
-
-    err=>{
-      console.log(err)
-      alert("Invalid Username/password")
-    }
-
   });
+  (error)  => {
+    alert("Error Occured");
+    }
 }
 
 closePopup(): void {

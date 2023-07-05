@@ -17,10 +17,12 @@
          
         </ul>
         <a href="tel:+91 9360585602"><button type="button">Emergency<br>+91 9360585602</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="button" routerLink="/appointment">Appointment</button>
+        <button type="button" routerLink="/appointment">Appointment</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" routerLink="/login">Log out</button>
       </nav>
       <section class="section">
-            <h4 style="font-weight:600;padding: 60px; padding-left:590px;padding-top:80px;">Book Appointment with Doctors..</h4>
+            <h4 style="font-weight:600;padding: 10px; padding-left:590px;padding-top:80px;">Book Appointment with Doctors..</h4>
+            <p style="font-weight: 500;margin-left:580px;padding-bottom:50px;">**For Privacy Reasons Doctor's Photos can't be shared..**</p>
 
          
             <form [formGroup]="Filter" (ngSubmit)="filter()">
@@ -51,18 +53,7 @@
             </section>
             
 
-            <!-- <section class="course" *ngIf="showdoctors">
-              <div class="row">
-                <ng-container *ngFor="let doc of Doctors">
-                  <div class="coursecol">
-                    <button type="button" (click)="showAppointmentForm = true">Book Appointment</button>
-                    <h6>Doctor Name&nbsp;:&nbsp;{{doc.firstName}} {{doc.lastName}}</h6>
-                    <h6>Dept Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{doc.depName}}</h6>
-                    <h6>Availability&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{doc.availableStatus}}</h6>
-                  </div>
-                </ng-container>
-              </div>
-            </section> -->
+           
 
             <div class="popup1" *ngIf="showAppointmentForm">
               <div class="popup-content1">
@@ -111,17 +102,16 @@
                       
                       <input type="submit"  value="Book Appointment">
                     </div><br>
+                    <div class="popup" *ngIf="status">
+                      <div class="popup-content">
+                        <span class="close" (click)="closePopup()">&times;</span>
+                        <h5 style="font-weight: 600;">Appointment Booked successfully!...</h5>
+                        
+                      </div>
+              
+                    </div>
            
-                   
-                    <!-- <div id="next">
-                  
-                      <input type="button" value="NEXT" routerLink= "/booking">
-                    </div> -->
-                  
-                  
-                  <!-- <div id="submit" routerLink="/booking" >
-                    <button type="submit" value="NEXT"(click)="customerForm()">NEXT</button>
-                  </div> -->
+                 
                   
                  </form>
                 
@@ -133,22 +123,13 @@
         
       </section>
 
-      <div class="popup" *ngIf="status">
-        <div class="popup-content">
-          <span class="close" (click)="closePopup()">&times;</span>
-          <h5 style="font-weight: 600;">Appointment Booked successfully!...</h5>
-          
-        </div>
-
-      </div>
-      
       <footer class="footer">
         <div class="container">
       
           <div class="row">
       
             <div class="footer-col">
-              <h2>DOCPULSE</h2>
+              <h2>HealthCR</h2>
                   <p>HEalthcare at its finest...<br>
                   </p>
             </div>
@@ -156,7 +137,7 @@
               <h4>Links</h4>
               <ul>
                 <li><a routerLink="">Home</a></li>
-                <li><a routerLink="/demo">Demo</a></li>
+               
                 <li><a routerLink="/specialities">Specialities</a></li>
                 <li><a routerLink="/procedures">Procedures</a></li>
                 <li><a routerLink="/appointment">Appointment</a></li>
@@ -185,7 +166,7 @@
         </div>   
       
         <div class="footer-bottom">
-          <p>copyright &copy;2023 <a routerLink="/home">DocPulse</a> All Rights Reserved </p>
+          <p>copyright &copy;2023 <a routerLink="/home">HealthCR</a> All Rights Reserved </p>
        </div>
       
       </footer>

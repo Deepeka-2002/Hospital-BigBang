@@ -8,7 +8,7 @@ import { RegistrationService } from '../service/registration.service';
 })
 export class DemoComponent {
 
-  
+   status:boolean;
   doc:any = {firstName :'',lastName:'',email : '', availableStatus:null, depName:'',gender:'',role:'',password:'',hashKey:''};
   id!: number;
 
@@ -33,14 +33,19 @@ public getDepartment():void{
     return this.registrationService.UpdateDoctor(this.id ,this.doc)
     .subscribe( 
       result => {
-        alert("updated");
+       this.status=true;
          // Set the update hotel alert message
       },
       error => {
-        alert("error");
+        alert("Error occured");
         // Set the update hotel error alert message
       }
       );
   
 }
+
+closePopup(): void {
+  this.status = false; // Close the registration status pop-up
+}
+
 }

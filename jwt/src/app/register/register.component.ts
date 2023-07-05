@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { SignupService } from '../service/signup.service';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { RegistrationService } from '../service/registration.service';
-// import validation from '../helper/validation';
+
 
 
 @Component({
@@ -42,8 +42,7 @@ export class RegisterComponent implements OnInit {
       availableStatus:true
       
     }
-    
-    this.loggedInUser=new LoggedInUserModel();
+    this.loggedInUser = new LoggedInUserModel();
 
   }
 
@@ -72,8 +71,7 @@ public getDepartment():void{
   {
     if (this.registerForm.valid)
     {
-      // this.registrationService.postRegistrationData(this.register);
-      // this.registrationService.setRegistrationData(this.register);
+   
        
       if(this.register.role === "Doctor")
       {
@@ -81,8 +79,7 @@ public getDepartment():void{
           {
            
             this.registration_status = true;
-            // alert("You will be added after the Admin approval");
-            
+        
           }
           
           );
@@ -100,46 +97,32 @@ public getDepartment():void{
             {
              
               this.status = true;
-              // alert("User added");
-              this.router.navigate(['login']);
+            
             }
             
             );
         }
       }
   
-        // this.loggedInUser = setRegistrationData as LoggedInUserModel;
-        // console.log(this.loggedInUser);
         
-        // localStorage.setItem("token",this.loggedInUser.token);
-        // localStorage.setItem("UserID",this.loggedInUser.id);
-        // localStorage.setItem("role",this.loggedInUser.role);
-        // this.registration_status = true;
-        // setTimeout(() => {
-        //   this.router.navigate(['login']);
-        // }, 3000);
-        // alert(`\t ........Registration successfull........
-        //   \n your user id is : ${this.loggedInUser.id} and your password is first 4 letters of your name + your birth date and month `);
         
       }
-      // err=>{
-      //   console.log(err)
+      
     
       login_here()
       {
         this.router.navigateByUrl('login');
       }
       closePopup(): void {
-        this.registration_status = false; // Close the registration status pop-up
+        this.registration_status = false;
+         // Close the registration status pop-up
       }
       closePopup1(): void {
-        this.status = false; // Close the registration status pop-up
+        this.status = false;
+        this.router.navigateByUrl('login'); // Close the registration status pop-up
       }
     
     }
-    // else 
-    // {
-    //   this.showError = true; // Show the error message
-    // }
+    
 
     

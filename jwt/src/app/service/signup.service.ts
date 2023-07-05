@@ -11,10 +11,7 @@ export class SignupService{
 
     }
 
-    // signup(register:registerModel){
-    //     console.log("register in servive")
-    //     return this.httpClient.post("https://localhost:7192/api/User/Register",register);
-    // }
+  
 
     userLogin(userDTO:UserDTOModel){
         return this.httpClient.post("https://localhost:7192/api/User/Login",userDTO);

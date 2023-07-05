@@ -51,7 +51,7 @@
     
 
 
-       <td><button class="btn btn-danger" (click)="Decline(doc.id)">Delete</button></td>
+       <td><button class="btn btn-danger" (click)="Decline1(doc.id)">Delete</button></td>
        </tr>
    </tbody>
    </table>
@@ -91,6 +91,24 @@
   </table><br><br><br>
 
 </section>
+
+<div class="popup" *ngIf="status">
+  <div class="popup-content">
+    <span class="close" (click)="closePopup()">&times;</span>
+    <h5 style="font-weight: 600;">Doctor Deleted successfully!...</h5>
+    
+  </div>
+
+</div>
+
+<div class="popup" *ngIf="status1">
+  <div class="popup-content">
+    <span class="close" (click)="closePopup1()">&times;</span>
+    <h5 style="font-weight: 600;">User Deleted successfully!...</h5>
+    
+  </div>
+
+</div>
 
   
 </section>

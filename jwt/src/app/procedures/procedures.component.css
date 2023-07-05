@@ -288,3 +288,192 @@
     width: 100%;
 }
 }
+
+@media (max-width: 574px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-item {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .grid-item img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .carousel-caption h1 {
+    font-size: 2em;
+    margin-bottom: 50px;
+  }
+
+  .facilities-col {
+    margin-right: 0;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 767px) {
+  nav {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .logo img {
+    left: 20px;
+  }
+
+  .carousel-caption h1 {
+    padding-right: 20px;
+    margin-right: 0;
+    margin-bottom: 100px;
+    font-size: 18px;
+  }
+
+  .facilities-col {
+    flex-basis: 100%;
+    margin-right: 0;
+    margin-bottom: 5%;
+  }
+  .facilities-col img{
+    margin-right: 90px;
+  }
+}
+@media (max-width: 767px) {
+	
+  nav {
+    padding: 15px 5%;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  nav .buttons {
+    margin-right: 20px;
+  }
+
+  button {
+    width:100px;
+    margin-right: 0;
+    font-size:8px;
+ 
+  }
+
+
+.logo img {
+  width: 120px;
+  height: 40px;
+  left: 100px;
+}
+
+.carousel-caption h1 {
+  font-size: 1em;
+  margin-bottom: 50px;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: auto;
+}
+
+.overcontent h2 {
+  padding: 30px;
+  padding-left: 250px;
+}
+
+.overcontent h5 {
+  padding: 60px;
+  line-height: 140%;
+}
+
+.testimonial-col {
+  flex-basis: 100%;
+}
+
+.row {
+  flex-wrap: wrap;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.coursecol {
+  flex-basis: 100%;
+}
+
+.campus-col {
+  flex-basis: 100%;
+}
+
+.testimonial-col1 {
+  flex-basis: 100%;
+}
+
+.footer-col {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+
+}
+.footer-bottom {
+  padding: 20px;
+  padding-left: 70px;
+}
+}
+
+@media (max-width: 574px) {
+.logo img {
+  width: 100px;
+  height: 30px;
+  left: 50px;
+}
+
+.carousel-caption h1 {
+  font-size: 1.4em;
+  margin-bottom: 0px;
+  letter-spacing: normal;
+}
+
+.overcontent h2 {
+  padding-top:50px;
+  padding-left: 220px;
+}
+
+.overcontent h5 {
+  padding: 40px;
+  line-height: 130%;
+}
+
+.coursecol,
+.campus-col,
+.testimonial-col1 {
+  padding: 30px;
+}
+
+.footer-col {
+  padding: 0;
+  width: 100%;
+}
+
+.footer-col h2 {
+  margin-right: 150px;
+}
+
+.footer-col p {
+  margin-right: 0;
+}
+
+.footer-col h4 {
+  font-size: 16px;
+}
+
+.footer-bottom p {
+  font-size: 12px;
+  padding: 0;
+}
+}

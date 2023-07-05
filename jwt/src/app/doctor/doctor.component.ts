@@ -9,6 +9,8 @@ import { RegistrationService } from '../service/registration.service';
 })
 export class DoctorComponent implements OnInit{
 
+
+  status:boolean;
   constructor(private router :Router ,private registrationService: RegistrationService, private route :ActivatedRoute){
   }
 
@@ -16,7 +18,6 @@ export class DoctorComponent implements OnInit{
 
     ngOnInit(){
       this.getAppointments();
-      this.Decline;
       this.route.queryParams.subscribe(params => {
         this.LoginId = params['LoginId'];
       });
@@ -37,15 +38,20 @@ export class DoctorComponent implements OnInit{
     this.Appointments=this.Appointments.filter((appo:any) => appo.id !== id);
   
   this.registrationService.DeleteAppointmentByIds(id).subscribe(
-    // res=>{
-    //   alert("deleted")
-    // }
-    (result) => { alert("Appointment Deleted");},
+    
+    (result) => {
+      this.status=true;
+    },
     (error)  => {
-      alert("Error");
+      alert("Error Occured");
       }
   );
 }
+
+closePopup(): void {
+  this.status = false; // Close the registration status pop-up
+}
+
 
 
 }

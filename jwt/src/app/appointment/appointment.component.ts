@@ -47,29 +47,7 @@ export class AppointmentComponent implements OnInit{
     });
   }
 
-  // public AppointmentDetails():void
-  // {
-
-  //   this.registrationService.AddAppointment(this.appointmentForm.value)
-  //   .subscribe(result => 
-  //     {
-       
-  //       console.log(result);
-  //        alert("Appointment booked ");
-  //     }
-      
-  //     );
-      // const userEmail = this.appointmentForm.value.userEmail; // Get the user email from the form
-  
-      // // Call the service method to get the user ID for the email
-      // this.registrationService.getUserId(userEmail).subscribe(response => {
-       
-      //   this.userId = response.id; // Store the user ID
-      //   this.appointmentForm.patchValue({ id: this.userId }); // Update the form with the user ID
-      //   this.postAppointment(); // Call the method to post the appointment
-        
-      
-    // }
+ 
    public showAppointment(id:any){
       this.DId = id;
       this.showAppointmentForm =true;
@@ -89,20 +67,7 @@ export class AppointmentComponent implements OnInit{
       );
     }
 
-    
 
-    // private postAppointment(): void {
-
-    // this.registrationService.AddAppointment(this.appointmentForm.value)
-    // .subscribe(result => 
-    //   {
-       
-    //     console.log(result);
-    //      alert("Appointment booked ");
-    //   }
-      
-    //   );
- 
 
 public getDoctors():void{
   this.registrationService.getDoc().subscribe(ress =>{

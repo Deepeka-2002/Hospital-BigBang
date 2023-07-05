@@ -48,12 +48,9 @@ export class OtherComponentComponent {
          this.data1= data;
         localStorage.setItem("LId",this.data1.id); 
 
-        // Handle success response if needed
       })
       this.registrationService.DeleteDoctor(dum.id).subscribe(
-        // res=>{
-        //   alert("deleted")
-        // }
+       
         (result) => { 
           this.status =true;
          
@@ -75,23 +72,15 @@ export class OtherComponentComponent {
     public Decline(dum:any){
 
       this.registrationService.DeleteDoctorById(dum.id).subscribe(
-        // res=>{
-        //   alert("deleted")
-        // }
+        
         (result) => {
           this.status1 = true;
         },
         (error)  => {
-          alert("Error");
+          alert("Error Occured");
           }
       )
-      // this.Dummy=this.Dummy.filter((dum:any) => dum.id !== id);
-      // this.registrationService.DeleteDoctorById(this.id)
-      // .subscribe( 
-      //   result => {
-      //     alert('Deleted'); // Set the add hotel alert message
-      //   }
-      //   );
+      
       }
 
 }

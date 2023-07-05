@@ -9,6 +9,10 @@ import { RegistrationService } from '../service/registration.service';
 })
 export class AdmindoctorComponent implements OnInit{
 
+  status:boolean;
+  status1:boolean;
+  
+
   constructor(private router :Router ,private registrationService: RegistrationService){
   }
     ngOnInit(){
@@ -35,18 +39,40 @@ export class AdmindoctorComponent implements OnInit{
     }
     )
   }
-  public Decline(id:any) : void{
+
+  public Decline1(id:any) : void{
     this.Doctors=this.Doctors.filter((doc:any) => doc.id !== id);
   
   this.registrationService.DeleteDoctorByIds(id).subscribe(
-    // res=>{
-    //   alert("deleted")
-    // }
-    (result) => { alert("Doctor Deleted");},
+    
+    (result) => { 
+      this.status = true;
+    },
+    (error)  => {
+      alert("Error Occured");
+      }
+  );
+}
+
+  public Decline(id:any) : void{
+    this.Users=this.Users.filter((use:any) => use.id !== id);
+  
+  this.registrationService.DeleteUserByIds(id).subscribe(
+   
+    (result) => { 
+      this.status1 = true;
+    },
     (error)  => {
       alert("Error");
       }
   );
+}
+
+closePopup(): void {
+  this.status = false; // Close the registration status pop-up
+}
+closePopup1(): void {
+  this.status1 = false; // Close the registration status pop-up
 }
 
 }

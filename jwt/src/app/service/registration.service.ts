@@ -17,13 +17,7 @@ export class RegistrationService {
 
     }
 
-  // setRegistrationData(data: any): void {
-  //   this.registrationData = data;
-  // }
-
-  // getRegistrationData(): any {
-  //   return this.registrationData;
-  // }
+ 
   
   public AddDoctor(register: registerModel) : Observable<any>
   {
@@ -70,6 +64,11 @@ public postRegistrationData(register:registerModel){
    return this.http.delete(`https://localhost:7192/api/Dummy/${id}`);
   }
   public DeleteDoctorByIds(id:any):Observable<any>
+  {
+   return this.http.delete(`https://localhost:7192/api/Users/${id}`);
+  }
+
+  public DeleteUserByIds(id:any):Observable<any>
   {
    return this.http.delete(`https://localhost:7192/api/Users/${id}`);
   }
