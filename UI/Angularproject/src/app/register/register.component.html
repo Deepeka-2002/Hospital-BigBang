@@ -1,0 +1,148 @@
+
+<html>
+      <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        
+  
+      </head>
+  
+
+    <body>
+
+<section class="loginsection" >
+           
+            
+              <div class="logindiv">
+
+
+                <h4 style="font-weight: 700;">Register your Account</h4>
+
+                <form #register_form="ngForm">
+              
+
+
+                  <div class="inputfield">
+                    <input type="email" class="form-control" placeholder="Email" name="email"
+                      [(ngModel)]="register.email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+                      #email="ngModel" />
+                    <div *ngIf="email.invalid && email.touched" >
+                      <div style="color: rgb(51, 89, 202); font-weight:600" *ngIf="email.errors?.['required']">Email is required.</div>
+                      <div  style="color: rgb(51, 89, 202); font-weight:600" *ngIf="email.errors?.['pattern']">Please enter a valid email address.</div>
+                    </div>
+                  </div>
+
+
+
+                  <div class="inputfield">
+                    <input type="text" class="form-control" placeholder="First Name"
+                      [(ngModel)]="register.firstName" name="firstName" required pattern="[a-zA-Z]+"
+                      #firstName="ngModel" />
+                    <div *ngIf="firstName.invalid && firstName.touched">
+                      <div style="color: rgb(51, 89, 202); font-weight:600" *ngIf="firstName.errors?.['required']">First Name is required.</div>
+                      <div style="color: rgb(51, 89, 202); font-weight:600" *ngIf="firstName.errors?.['pattern']">Only alphabets are
+                        allowed.</div>
+                    </div>
+                  </div>
+
+                  <div class="inputfield">
+                    <input type="text" class="form-control" placeholder="Last Name"
+                      [(ngModel)]="register.lastName" name="lastName" required pattern="[a-zA-Z]+"
+                      #lastName="ngModel" />
+                    <div *ngIf="lastName.invalid && lastName.touched" >
+                      <div style="color: rgb(51, 89, 202); font-weight:600" *ngIf="lastName.errors?.['required']">Last Name is required.</div>
+                      <div  style="color: rgb(51, 89, 202); font-weight:600" *ngIf="lastName.errors?.['pattern']">Only alphabets are
+                        allowed.</div>
+                    </div>
+                  </div>
+
+
+                  <div class="inputfield">
+                    <select style="border-color:black" class="form-control" [(ngModel)]="register.gender" name="gender" required
+                      #gender="ngModel">
+                      <option value="" disabled selected hidden>Select Gender</option>
+                      <option value="female">Female</option>
+                      <option value="male">Male</option>
+                      <option value="trans">Transgender</option>
+                    </select>
+                    <div *ngIf="gender.invalid && gender.touched" >
+                      <div style="color: rgb(51, 89, 202); font-weight:600" *ngIf="gender.errors?.['required']">Gender is required.</div>
+                    </div>
+                  </div>
+
+
+
+                  <div class="inputfield">
+                    <select style="border-color:black"class="form-control"[(ngModel)]="register.role" name="role" required
+                      #role="ngModel">
+                      <option value="" disabled selected hidden>Select Role</option>
+                      
+                      <option value="Doctor">Doctor</option>
+                      <option value="User">User</option>
+
+                    </select>
+                    <div *ngIf="role.invalid && role.touched" >
+                      <div style="color: rgb(51, 89, 202); font-weight:600" *ngIf="role.errors?.['required']">Role is required.</div>
+                    </div>
+                  </div>
+
+                  <div style="padding-left: 60px;padding-top:30px;padding-bottom:10px">
+                    <select  style="border-color:black; 
+                   
+                    width: 416px;
+                    color:black" class="form-control" *ngIf="register.role ==='Doctor'" [(ngModel)]="register.depName" name="depName" required
+                      #depName="ngModel">
+                      <option style="color:black" value="" disabled selected hidden>Select Department Name</option>
+                    
+                      <option *ngFor="let dep of Depts" value="{{dep.depName}}">{{dep.depName}}</option>
+                      
+
+                    </select>
+                    
+                  </div>
+
+                  <div class="inputfield" style="padding-top:10px">
+                    <input type="password" class="form-control" placeholder="Enter Password"
+                      [(ngModel)]="register.passwordClear" name="password" required
+                      pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" #password="ngModel" />
+                    <div *ngIf="password.invalid && password.touched" class="text-danger">
+                      <div style="color: rgb(51, 89, 202); font-weight:600" *ngIf="password.errors?.['required']">Password is required.</div>
+                      <div *ngIf="password.errors?.['pattern']">
+                        Password should contain a minimum of 8 characters with at least 1 uppercase, 1 lowercase, 1
+                        digit, and 1 special character.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="btninput">
+                    <button type="button" class="log" (click)="onPost()">Register</button>
+                    <div *ngIf="showError"  style="color: rgb(51, 89, 202); font-weight:600">Please fill all the fields.</div>
+                  </div>
+
+                  <p style="font-size:18px; margin-left:130px; padding-bottom: 40px;" >Already have an account?
+                    <a style="cursor:pointer;color: rgb(51, 89, 202); font-weight:600" (click)="login_here()" >Login here </a>
+                  </p>
+
+                  <div class="popup" *ngIf="registration_status">
+                    <div class="popup-content">
+                      <span class="close" (click)="closePopup()">&times;</span>
+                      <h5 style="font-weight: 600;">You can Login after the Admin Approval!...</h5>
+                     
+                    </div>
+
+                  </div>
+
+                  <div class="popup" *ngIf="status">
+                    <div class="popup-content">
+                      <span class="close" (click)="closePopup1()">&times;</span>
+                      <h5 style="font-weight: 600;">Registration successful!...</h5>
+                     
+                    </div>
+
+                  </div>
+
+                </form>
+              </div>
+            
+</section>
+</body>

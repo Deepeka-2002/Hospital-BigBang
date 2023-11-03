@@ -1,0 +1,124 @@
+
+<html>
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+      
+
+    </head>
+
+<body class="adbody">
+    <nav>
+        <a routerLink="" class="logo"><img src="../assets/Images/logo.png"></a>
+        <ul>
+        
+         
+        </ul>
+        <button type="button" routerLink="/demo">Edit Profile</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" routerLink="/login">Logout</button>
+ 
+      </nav>
+<br><br><br>
+      <section class="vh-150" style="background-color: rgb(254, 250, 250);">
+        <div class="container py-5 h-100"  >
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-6" style="box-shadow:0 0 20px 0px rgb(174, 174, 174); border-radius: 1rem;">
+              <div class="card" style="border-radius: 1rem;">
+                <div class="row g-0">
+                 
+                  <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                    <div class="card-body p-4 p-lg-5 text-black">
+      
+      
+                      
+      
+                      <h4 class="fw-bold mb-3 pb-3" style="letter-spacing: 1px;">Update your details..</h4>
+      
+                      <form>
+                        <div class="form-outline mb-4">
+                          <b> Registration ID </b>
+                            <input type="number" class="form-control form-control-lg"style="width:500px; padding-left:20px;font-size:14px;" 
+                              id="id" name="id" [(ngModel)]="id" 
+                              [ngModelOptions]="{standalone: true}"/>
+                            
+                          </div>
+                        <div class="form-outline mb-4">
+                          <b>FirstName</b>
+                          <input type="text" class="form-control form-control-lg"style="width:500px; padding-left:20px;font-size:14px" 
+                            id="firstName" name="firstName"  [(ngModel)]="doc.firstName" 
+                            [ngModelOptions]="{standalone: true}"/>
+                          
+                        </div>
+                        <div class="form-outline mb-4">
+                          <b>LastName</b>
+                            <input type="text" class="form-control form-control-lg"style="width:500px; padding-left:20px;font-size:14px" 
+                          id="lastName" name="lastName" [(ngModel)]="doc.lastName" 
+                              [ngModelOptions]="{standalone: true}" />
+                            
+                          </div>
+                        <div class="form-outline mb-4">
+                          <b>Email</b>
+                          <input type="email" class="form-control form-control-lg" style=" padding-left:20px;font-size:14px;" name="email" 
+                          [(ngModel)]="doc.email" 
+                                [ngModelOptions]="{standalone: true}" >
+                          
+                        </div>
+                        <div class="form-outline mb-4">
+                          <b>Specialisation Name</b>
+                           
+
+                            <select class="form-control form-control-lg"  [(ngModel)]="doc.depName" name="depName" [ngModelOptions]="{standalone: true}" placeholder="Department Name"  >
+                      <option style="color:black; font-size:14px;" value="" disabled selected hidden>&nbsp;&nbsp;&nbsp;&nbsp;</option>
+                    
+                      <option *ngFor="let dep of Depts" value="{{dep.depName}}">&nbsp;&nbsp;&nbsp;&nbsp;{{dep.depName}}</option>
+                      
+
+                    </select>
+                            
+                          </div>
+      
+                        
+                          <div class="form-outline mb-4">
+                            <b>Availability</b>
+                            <select class="form-control form-control-lg" style="width:500px; padding-left:20px" name="availableStatus" [(ngModel)]="doc.availableStatus" 
+                            [ngModelOptions]="{standalone: true}" placeholder="Availability">
+                              <option style="color:black;font-size:14px;" value="" disabled selected hidden>Availability</option>
+                              <option [ngValue]="true">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yes</option>
+                              <option [ngValue]="false">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No</option>
+                            </select>
+                          </div>
+                                   
+                        
+
+      
+                        <div class="pt-3 ml-5 mb-9">
+                          
+                          <button type="button" style="width:150px;margin-left:190px;" (click)="UpdateDoctorById()">Update</button>
+                          
+                        </div>
+      
+                       
+                     
+                      </form>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="popup" *ngIf="status">
+        <div class="popup-content">
+          <span class="close" (click)="closePopup()">&times;</span>
+          <h5 style="font-weight: 600;">Details Updated successfully!...</h5>
+          
+        </div>
+
+      </div>
+
+          
+      </body>
+      </html>

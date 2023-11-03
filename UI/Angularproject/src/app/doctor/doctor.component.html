@@ -1,0 +1,70 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+      
+
+    </head>
+
+<body class="adbody">
+    <nav>
+        <a routerLink="" class="logo"><img src="../assets/Images/logo.png"></a>
+        <ul>
+        
+         
+        </ul>
+        <button type="button" routerLink="/demo">Edit Profile</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" routerLink="/login">Logout</button>
+
+      </nav><br><br>
+
+      <section>
+    
+       
+        <h3 style="font-weight: 700;padding-left:600px;padding-top:50px;padding-bottom: 60px;">Patient Appointment Details..</h3><br>
+        <table class="table">
+        <thead>
+         <tr>
+             <th></th>
+             <th></th>
+             <th scope="col">PatientName</th>
+             <th scope="col">UserEmail</th>
+             <th scope="col">Age</th>
+             <th scope="col">Gender</th>
+             <th scope="col">Appointment Time</th>
+             <th scope="col">Problem </th>
+             <th> Edit Action</th>
+         </tr>
+        </thead>
+        <tbody>
+           <tr *ngFor="let app of Appointments">
+            <td></td>
+            <td></td>
+             <td>{{app.patientName }}</td>
+             <td>{{app.userEmail}}</td>
+             <td>{{app.age}}</td>
+             <td>{{app.gender}}</td>
+             <td>{{app.appointmentSchedule}}</td>
+             <td>{{app.diseaseDescription}}</td>
+         
+     
+     
+            <td><button class="btn btn-danger" (click)="Decline(app.appointmentId)">Delete</button></td>
+            </tr>
+        </tbody>
+        </table><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+     
+     </section>
+
+     <div class="popup" *ngIf="status">
+      <div class="popup-content">
+        <span class="close" (click)="closePopup()">&times;</span>
+        <h5 style="font-weight: 600;">Appointment Deleted successfully!...</h5>
+        
+      </div>
+
+    </div>
+
+          
+      </body>
+      </html>

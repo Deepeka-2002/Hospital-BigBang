@@ -1,0 +1,65 @@
+
+    <html>
+      <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        
+  
+      </head>
+  
+
+    <body>
+    <section class="loginsection">
+                 
+                
+                    <div class="logindiv">
+      
+
+                        <div >
+                 
+                          <span class="heading">Join Us</span>
+                        </div>
+      
+                        <h4 style="font-weight: 700;">Sign into your account</h4>
+      
+
+                        <div class="inputfield">
+                          <input type="text" id="form2Example17" class="form-control" placeholder="Email" [(ngModel)]="userDTO.email" name="email"  required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" #email="ngModel"/>
+                          <div *ngIf="email.invalid && (email.dirty || email.touched)" >
+                            <div  style="color: rgb(51, 89, 202); font-weight:600" *ngIf="email.errors?.['required']">*User email is required.</div>
+                            
+                          </div>
+                        </div>
+      
+
+                        <div class="inputfield">
+                          <input type="password" id="form2Example27" class="form-control" placeholder="Password" [(ngModel)]="userDTO.password" name="password" required  #password="ngModel"/>
+                          
+                          <div *ngIf="password.invalid && (password.dirty || password.touched)" style="color: rgb(51, 89, 202); font-weight:600">
+                            <div *ngIf="password.errors?.['required']">*Password is required.</div>
+                          </div>
+                        </div>
+      
+                        <div class="btninput">
+                          <button type="button"class="log" (click)="Login()">Login</button>
+                        </div>
+
+                        <div class="popup" *ngIf="login_status">
+                          <div class="popup-content">
+                            <span class="close" (click)="closePopup()">&times;</span>
+                            <h5 style="font-weight: 600;">Login successful!...</h5>
+                            <p style="font-weight: 600;" *ngIf="loggedInUser.role ==='Doctor'">Your Registration Id is {{LoginId}}..<p>
+                           
+                          </div>
+      
+                        </div>
+      
+                        
+                        <p style="font-size:18px; text-align: center;padding-bottom:20px">Don't have an account? 
+                        <a (click)="move()" style="color:rgb(51, 89, 202);cursor:pointer;font-weight: 700;">Register here </a></p>
+                        
+                    </div>
+      </section>
+
+    </body>
+    </html>

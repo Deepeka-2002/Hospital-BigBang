@@ -1,0 +1,176 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+      
+
+    </head>
+
+<body >
+    <nav>
+        <a routerLink="" class="logo"><img src="../assets/Images/logo.png"></a>
+        <ul>
+          <li><a routerLink="">Home</a></li>
+          <li><a routerLink="/specialities">Specialities</a></li>
+
+          <li><a routerLink="/treatment">Treatments</a></li>
+         
+        </ul>
+        <a href="tel:+91 9360585602"><button type="button">Emergency<br>+91 9360585602</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" routerLink="/appointment">Appointment</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" routerLink="/login">Log out</button>
+      </nav>
+      <section class="section">
+            <h4 style="font-weight:600;padding: 10px; padding-left:590px;padding-top:80px;">Book Appointment with Doctors..</h4>
+            <p style="font-weight: 500;margin-left:580px;padding-bottom:50px;">**For Privacy Reasons Doctor's Photos can't be shared..**</p>
+
+         
+            <form [formGroup]="Filter" (ngSubmit)="filter()">
+              <div class="form-group">
+              <input style="width:350px;height:40px;margin-left:550px;margin-top: 50px;padding-left:10px;" type="text" class="form-control" placeholder="Search by Specialisation.." formControlName="depName" (ngModel)="depName">
+              <input type="submit" class="formhover" style="background-color: rgb(31, 76, 209);white-space: wrap; border-radius:5px;width:100px;height:40px;color:white;font-weight: 500; border-style: none;position: relative;top:-40px;left:900px;"  value="Search">
+                  
+              </div>
+            </form>
+
+            <section class="course" >
+            
+              <div class="row">
+                <ng-container *ngFor="let doc of filteredSpec">
+
+                  <div class="coursecol">
+                    <img src="../../assets/Images/{{doc.gender}}.png" style="width:100px;height:100px;border-radius:5px;">
+                    <button type="button" (click)="showAppointment(doc.id)">Book Appointment</button>
+                    <h6>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{doc.firstName}} {{doc.lastName}}</h6>
+                    <h6>Dept Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{doc.depName}}</h6>
+                    <h6>Availability&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;
+                      <ng-container *ngIf="doc.availableStatus; else notAvailable"><span class="text-success" style="font-weight: 700;">Yes</span></ng-container>
+                      <ng-template #notAvailable><span class="text-danger" style="font-weight: 700;">No</span></ng-template>
+                    </h6>
+                  </div>
+                </ng-container>
+              </div>
+            </section>
+            
+
+           
+
+            <div class="popup1" *ngIf="showAppointmentForm">
+              <div class="popup-content1">
+                <span class="close1" (click)="closeAppointment()">&times;</span>
+            <div class="form">
+            <div *ngIf="showAppointmentForm" class="main-form"><br>
+                <form [formGroup]="appointmentForm" (ngSubmit)="AppointmentDetails()" > 
+                  <div class="form-group">
+                    <span>Patient name ?</span>
+                    <input type="text" name="Fname" id="Fname" class="form-control" formControlName="patientName">
+                    
+                  </div>
+            
+                  <div class="form-group">
+                    <span>Age ?</span>
+                    <input type="number" name="number" id="number" class="form-control" formControlName="age" required>
+                  </div>
+            
+                  <div class="form-group">
+                    <span>Gender ?</span>
+                    <select class="form-control" formControlName="gender" name="gender" required
+                      >
+                      <option value="" disabled selected hidden>----</option>
+                      <option value="female">Female</option>
+                      <option value="male">Male</option>
+                      <option value="trans">Transgender</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <span>Email address ?</span>
+                    <input type="email" name="email" id="email" class="form-control" formControlName="userEmail" required>
+                  </div>
+            
+                  <div class="form-group">
+                      <span>Affliction ?</span>
+                      <input type="text" name="address" id="address" class="form-control"  formControlName="diseaseDescription" required>
+                    </div>
+           
+                    <div class="form-group">
+                      <span>Appointment Date and Time ?</span>
+                      <input type="datetime-local" name="city" id="city" class="form-control"  formControlName="appointmentSchedule">
+                    </div><br>
+      
+                    <div id="confirm">
+                      
+                      <input type="submit"  value="Book Appointment">
+                    </div><br>
+                    <div class="popup" *ngIf="status">
+                      <div class="popup-content">
+                        <span class="close" (click)="closePopup()">&times;</span>
+                        <h5 style="font-weight: 600;">Appointment Booked successfully!...</h5>
+                        
+                      </div>
+              
+                    </div>
+           
+                 
+                  
+                 </form>
+                
+            </div>
+            </div>
+       
+              </div> 
+              </div><br><br><br><br>
+        
+      </section>
+
+      <footer class="footer">
+        <div class="container">
+      
+          <div class="row">
+      
+            <div class="footer-col">
+              <h2>HealthCR</h2>
+                  <p>HEalthcare at its finest...<br>
+                  </p>
+            </div>
+            <div class="footer-col">
+              <h4>Links</h4>
+              <ul>
+                <li><a routerLink="">Home</a></li>
+               
+                <li><a routerLink="/specialities">Specialities</a></li>
+                <li><a routerLink="/procedures">Procedures</a></li>
+                <li><a routerLink="/appointment">Appointment</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Support</h4>
+              <ul>
+                <li><a routerLink="/faq">FAQ</a></li>
+                <li><a routerLink="/support">Support center</a></li>
+                <li><a routerLink="/feedback">Feedback</a></li>
+                
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Contact us</h4>
+              <div class="social-links">
+                <a href="https://www.facebook.com/itcgrandcentral/"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/ITCHotels"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/itchotels/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/itc-hotels/"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+      
+          </div>
+        </div>   
+      
+        <div class="footer-bottom">
+          <p>copyright &copy;2023 <a routerLink="/home">HealthCR</a> All Rights Reserved </p>
+       </div>
+      
+      </footer>
+          
+          
+      </body>
+      </html>

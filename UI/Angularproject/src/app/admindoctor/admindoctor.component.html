@@ -1,0 +1,116 @@
+
+<html>
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+      
+
+    </head>
+
+<body>
+<section class="home">
+
+  <nav>
+    <a routerLink="" class="logo"><img src="../assets/Images/logo.png"></a>
+    <ul>
+      
+      
+    </ul>
+    
+    <a routerLink="/admindoctor"><button type="button">Manage Details</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a routerLink="/login"><button type="button">Log Out</button></a>
+    <!-- <button type="button" routerLink="/signup">Sign Up</button> -->
+  </nav>
+  
+
+<section>
+    
+   <h3 style="font-weight: 700;padding-left:600px;padding-top:50px;padding-bottom: 60px;">List of Doctors..</h3>
+   <table class="table">
+   <thead>
+    <tr>
+      <th></th>
+      <th></th>
+        <th scope="col">Email</th>
+        <th scope="col">FirstName</th>
+        <th scope="col">LastName</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Dept</th>
+        <th> Edit Action</th>
+    </tr>
+   </thead>
+   <tbody>
+      <tr *ngFor="let doc of Doctors">
+        <td></td>
+        <td></td>
+        <td>{{doc.email }}</td>
+        <td>{{doc.firstName}}</td>
+        <td>{{doc.lastName}}</td>
+        <td>{{doc.gender}}</td>
+        <td>{{doc.depName}}</td>
+    
+
+
+       <td><button class="btn btn-danger" (click)="Decline1(doc.id)">Delete</button></td>
+       </tr>
+   </tbody>
+   </table>
+
+</section>
+
+
+<section>
+    
+  <h3 style="font-weight: 700;padding-left:600px;padding-top:50px;padding-bottom: 60px;">List of Users..</h3>
+  <table class="table">
+  <thead>
+   <tr>
+      <th></th>
+       <th scope="col">Email</th>
+       <th scope="col">FirstName</th>
+       <th scope="col">LastName</th>
+       <th scope="col">Gender</th>
+      
+       <th> Edit Action</th>
+   </tr>
+  </thead>
+  <tbody>
+     <tr *ngFor="let use of Users">
+      <td></td>
+       <td >{{use.email }}</td>
+       <td>{{use.firstName}}</td>
+       <td>{{use.lastName}}</td>
+       <td>{{use.gender}}</td>
+      
+   
+
+
+      <td><button class="btn btn-danger" (click)="Decline(use.id)">Delete</button></td>
+      </tr>
+  </tbody>
+  </table><br><br><br>
+
+</section>
+
+<div class="popup" *ngIf="status">
+  <div class="popup-content">
+    <span class="close" (click)="closePopup()">&times;</span>
+    <h5 style="font-weight: 600;">Doctor Deleted successfully!...</h5>
+    
+  </div>
+
+</div>
+
+<div class="popup" *ngIf="status1">
+  <div class="popup-content">
+    <span class="close" (click)="closePopup1()">&times;</span>
+    <h5 style="font-weight: 600;">User Deleted successfully!...</h5>
+    
+  </div>
+
+</div>
+
+  
+</section>
+</body>
+</html>

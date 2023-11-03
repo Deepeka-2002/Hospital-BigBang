@@ -1,0 +1,77 @@
+
+<html>
+    <head>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+      
+
+    </head>
+
+<body>
+<section class="home">
+
+  <nav>
+    <a routerLink="" class="logo"><img src="../assets/Images/logo.png"></a>
+    <ul>
+      
+      
+    </ul>
+    <a routerLink="/admindoctor"><button type="button">Manage Details</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a routerLink="/login"><button type="button">Log Out
+    </button></a>
+   
+  </nav>
+  
+    
+   <h3 style="font-weight: 700;padding-left:600px;padding-top:50px;padding-bottom: 60px;">Waiting for Approval</h3>
+   <table class="table">
+   <thead>
+    <tr>
+        <th></th>
+        <th></th>
+        <th scope="col">Email</th>
+        <th scope="col">FirstName</th>
+        <th scope="col">LastName</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Dept</th>
+        <th>Accept</th>
+        <th>Delete</th>
+    </tr>
+   </thead>
+   <tbody>
+      <tr *ngFor="let dum of Dummy">
+        <td></td>
+        <td></td>
+        <td>{{dum.email }}</td>
+        <td>{{dum.firstName}}</td>
+        <td>{{dum.lastName}}</td>
+        <td>{{dum.gender}}</td>
+        <td>{{dum.depName}}</td>
+       <td><button class="btn btn-success" (click)="Approve(dum)">Approve</button></td>
+       <td><button class="btn btn-danger" (click)="Decline(dum)">Decline</button></td>
+       </tr>
+   </tbody>
+   </table>
+
+
+<div class="popup" *ngIf="status">
+  <div class="popup-content">
+    <span class="close" (click)="closePopup()">&times;</span>
+    <h5 style="font-weight: 600;">Doctor Approved!...</h5>
+   
+  </div>
+
+</div>
+<div class="popup" *ngIf="status1">
+  <div class="popup-content">
+    <span class="close" (click)="closePopup1()">&times;</span>
+    <h5 style="font-weight: 600;">Doctor Registration Declined!...</h5>
+   
+  </div>
+
+</div>
+
+
+</section>
+</body>
+</html>
